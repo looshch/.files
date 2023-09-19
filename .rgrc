@@ -1,0 +1,6 @@
+--smart-case
+--fixed-strings
+--line-number
+--hidden
+--glob=!{package*.json,.git,.yarn,*lock}
+--threads=8

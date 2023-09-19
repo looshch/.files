@@ -1,0 +1,138 @@
+[user]
+	email = looshch@loosh.ch
+	name = george looshch
+
+[core]
+	editor = nvim
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+[mergetool]
+	keepBackup = false
+
+[gpg]
+	format = ssh
+[user]
+	signingkey = ~/.ssh/ed.pub
+[commit]
+	gpgsign = true
+
+[push]
+	autoSetupRemote = true
+
+[init]
+	defaultBranch = master
+
+[alias]
+	a  = add
+	ap = a -p
+
+	ac = !git a . && git c
+	acnv = !git a . && git cnv
+	aca = !git a . && git ca
+	acanv = !git a . && git canv
+	acan = !git a . && git can
+	acannv = !git a . && git cannv
+	acanp = !git a . && git canp
+	acanpnv = !git a . && git canpnv
+	acanpf = !git a . && git canpf
+	acanpfnv = !git a . && git canpfnv
+	acap = !git a . && git cap
+	acapnv = !git a . && git capnv
+	acapf = !git a . && git capf
+	acapfnv = !git a . && git capfnv
+	acp = !git a . && git cp
+	acpnv = !git a . && git cpnv
+
+	aclean = clean -f -d
+
+	b = branch
+	bl = b -l
+	bm = b -m
+	bd = b -D
+
+	c = commit -S
+	cnv = c --no-verify
+	ca = c --amend
+	canv = ca --no-verify
+	can = ca --no-edit
+	cannv = can --no-verify
+	canp = !git can && git p
+	canpnv = !git cannv && git pnv
+	canpf = !git can && git pf
+	canpfnv = !git cannv && git pfnv
+	cap = !git ca && git p
+	capnv = !git canv && git pnv
+	capf = !git ca && git pf
+	capfnv = !git canv && git pfnv
+	cp = !git c && git p
+	cpnv = !git cnv && git pnv
+
+	co = checkout
+	cob = co -b
+
+	cl = clone
+	cld = cl --depth 1
+
+	d = difftool
+	ds = d --staged
+
+	dno = diff --name-only
+	dnos = diff --name-only --staged
+
+	h = help
+
+	i = init
+
+	l = log
+
+	mt = mergetool
+
+	p = push
+	pnv = p --no-verify
+	pd = p -d
+	pdnv = pd --no-verify
+	pf = p -f
+	pfnv = pf --no-verify
+	pt = p --tags
+
+	paur = pull --allow-unrelated --rebase
+
+	; Rebase on a branch.
+	r = "!r() { \
+	  CUR_BRANCH="$(git b --show-current)"; \
+	  git co $1; \
+	  git pull; \
+	  git co ${CUR_BRANCH}; \
+	  git ri $1; \
+	}; r"
+	ra = rebase --abort
+	rc = rebase --continue
+	ri = rebase -i
+	rir = ri --root
+	; rir preserve date.
+	rirpd = rir --committer-date-is-author-date
+
+	rl = reflog
+
+	rs = restore --staged
+
+	s = status
+
+	sd = st drop
+	sl = st list
+	spo = st pop
+	spu = st push
+	st = stash
+
+	t = tag
+
+	uiau = update-index --assume-unchanged
+	uinau = update-index --no-assume-unchanged
+
+	; When a file was added.
+	wa = l --diff-filter=A --
+
+	; Who.
+	w = blame
